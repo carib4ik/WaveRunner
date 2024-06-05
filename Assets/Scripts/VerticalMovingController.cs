@@ -3,8 +3,10 @@ using UnityEngine;
 public class VerticalMovingController : MonoBehaviour
 {
     [SerializeField] private float _movingSpeed;
-    [SerializeField] private Vector3 _topPosition;
-    [SerializeField] private Vector3 _downPosition;
+    [SerializeField] private float _movementDelta;
+    
+    private Vector3 _topPosition;
+    private Vector3 _downPosition;
 
     private Transform _transform;
     private float _movingTime;
@@ -13,8 +15,8 @@ public class VerticalMovingController : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
         
-        _topPosition.x = _transform.position.x;
-        _downPosition.x = _transform.position.x;
+        _topPosition = new Vector3(transform.position.x , transform.position.y + _movementDelta, transform.position.z);
+        _downPosition = new Vector3(transform.position.x, transform.position.y - _movementDelta, transform.position.z);
     }
 
     private void Update()

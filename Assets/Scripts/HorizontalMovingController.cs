@@ -3,8 +3,10 @@ using UnityEngine;
 public class HorizontalMovingController : MonoBehaviour
 {
     [SerializeField] private float _movingSpeed;
-    [SerializeField] private Vector3 _leftPosition;
-    [SerializeField] private Vector3 _rightPosition;
+    [SerializeField] private float _movementDelta;
+    
+    private Vector3 _leftPosition;
+    private Vector3 _rightPosition;
 
     private Transform _transform;
     private float _movingTime;
@@ -12,6 +14,9 @@ public class HorizontalMovingController : MonoBehaviour
     private void Start()
     {
         _transform = GetComponent<Transform>();
+        
+        _leftPosition = new Vector3(transform.position.x - _movementDelta, transform.position.y, transform.position.z);
+        _rightPosition = new Vector3(transform.position.x + _movementDelta, transform.position.y, transform.position.z);
     }
 
     private void Update()

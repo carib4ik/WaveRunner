@@ -30,9 +30,7 @@ public class ObstacleManager : MonoBehaviour
     private void InstantiateObstacle()
     {
         var randomObstacle = Random.Range(0, _obstacles.Length);
-        
-        // поставил принудительный спавн только нужнах преград для тестирования
-        var newObstacle = Instantiate(_obstacles[3],
+        var newObstacle = Instantiate(_obstacles[randomObstacle],
             new Vector3(0, _obstacleIndex * _distanceToNextObstacle), Quaternion.identity);
         newObstacle.transform.SetParent(transform);
 

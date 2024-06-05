@@ -144,5 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movingSpeed: 1
-  _topPosition: {x: 0, y: 3, z: 0}
-  _downPosition: {x: 0, y: -3, z: 0}
+  _movementDelta: 3
